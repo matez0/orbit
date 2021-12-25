@@ -165,3 +165,47 @@ The time difference and acceleration for the Verlet integration:
 **a**[n] = **A**(**r**[n - k])
 
 ![multiple delta](discretizing_multiple_delta.svg)
+
+---
+
+
+# Examples
+
+
+## Sun-Mercury system
+
+The astronomical data were obtained from the
+[Sun fact sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html)
+and
+[Mercury fact sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html)
+of NASA.
+The calculation is started from the aphelion position (**r**[0]).
+For the reduced time difference, the previous reduced distance is used.
+The **r**[1] next initial position is calculated assuming parabolic trajectory with **A**(**r**[0]) acceleration.
+
+With the retarded interaction, the planet drifts outwards from the Sun.
+Assuming that the speed of the interaction effect is the speed of light in vacuum,
+the orbit changes the following way after many orbital period:
+
+![changes of orbit after many orbital period, `c` is light speed](mercury-900-1c.svg)
+
+The characteristics of the calculation:
+| orbital period | iteration | iteration per orbit |
+|---------------:|----------:|--------------------:|
+|              1 |     39368 |               39368 |
+|            300 |  13668188 |               51782 |
+|            600 |  31098958 |               64411 |
+|            900 |  52345658 |               77221 |
+
+To check the numerical stability of the integration, the orbit was calculated with the classical interaction.
+After many orbital period, the classical orbit remains the same:
+
+![classical orbit remains the same after many orbital period](mercury-classical-num-stability.svg)
+
+When the speed of the interaction effect is assumed to be 10 times of the speed of light in vacuum,
+the rate of drifting out is decreased.
+
+![changes of orbit after many orbital period, `c` is 10 x light speed](mercury-900-10c.svg)
+
+The more the speed of the interaction effect is
+the less the deviation from the classical orbit will be after the same orbital period.
