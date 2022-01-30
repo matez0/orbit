@@ -166,6 +166,8 @@ The time difference and acceleration for the Verlet integration:
 
 ![multiple delta](discretizing_multiple_delta.svg)
 
+---
+
 
 # Examples
 
