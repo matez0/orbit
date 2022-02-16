@@ -77,9 +77,9 @@ def verlet_1(z):
 
 
 year = 0
-it = 0
+iteration = 0
 orbits = []
-year_step_to_display = 10
+year_step_to_display = 300
 
 while year < 3 * year_step_to_display:
     dt += [(x[-1] ** 2 + y[-1] ** 2) ** .5]
@@ -89,14 +89,14 @@ while year < 3 * year_step_to_display:
     x += [x_next]
     y += [y_next]
 
-    it += 1
+    iteration += 1
 
     if has_one_year_elapsed():
         year += 1
-        print(it, year)
+        print(year, iteration)
 
         if year % year_step_to_display == 0 or year == 1:
-            step = 1 if len(x) < 100 else len(x) // 100
+            step = len(x) // 100 or 1
             orbits += [(year, x[-1], (y[-1] - y[-2]) / dt[-1], x[::step], y[::step])]
 
         x = x[-2:]
@@ -108,7 +108,7 @@ with open('result.py', 'w') as result:
 import matplotlib.pyplot as plt
 
 for year, r_max, u_min, x, y in {orbits}:
-    plt.plot(x, y, label=f'{{year}}, {{r_max / {r0}:.3e}}, {{u_min / {u0}:.3e}}')
+    plt.plot(x, y, label=f'{{year}}, {{r_max / {r0}:.4g}}, {{u_min / {u0}:.3g}}')
 plt.title("""Retarded interaction - Sun-Mercury
 Changes of orbit after many orbital period
 u[0] = {u0:.3e}  r%[0] = {r0:.3e}""")
