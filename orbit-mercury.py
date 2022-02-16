@@ -65,7 +65,7 @@ def verlet(z, acceleration):
 
     Returns z_next.
     '''
-    return z[-1] +(z[-1] - z[-2]) * dt[-1] / dt[-2] + acceleration(z) * (dt[-1] + dt[-2]) * dt[-1] / 2
+    return z[-1] + (z[-1] - z[-2]) * dt[-1] / dt[-2] + acceleration(z) * (dt[-1] + dt[-2]) * dt[-1] / 2
 
 
 def has_one_year_elapsed():
