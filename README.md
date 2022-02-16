@@ -166,6 +166,13 @@ The time difference and acceleration for the Verlet integration:
 
 ![multiple delta](discretizing_multiple_delta.svg)
 
+
+## Further reading
+
+[Wikipedia - Speed of gravity](https://en.wikipedia.org/wiki/Speed_of_gravity)
+
+[The Original Usenet Physics FAQ - Does Gravity Travel at the Speed of Light?](https://math.ucr.edu/home/baez/physics/Relativity/GR/grav_speed.html)
+
 ---
 
 
