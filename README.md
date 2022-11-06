@@ -203,3 +203,16 @@ The characteristics of the calculation:
 |            300 |  13668188 |               51782 |
 |            600 |  31098958 |               64411 |
 |            900 |  52345658 |               77221 |
+
+To check the numerical stability of the integration, the orbit was calculated with the classical interaction.
+After many orbital period, the classical orbit remains the same:
+
+![classical orbit remains the same after many orbital period](mercury-classical-num-stability.svg)
+
+When the speed of the interaction effect is assumed to be 10 times of the speed of light in vacuum,
+the rate of drifting out is decreased.
+
+![changes of orbit after many orbital period, `c` is 10 x light speed](mercury-900-10c.svg)
+
+The more the speed of the interaction effect is
+the less the deviation from the classical orbit will be after the same orbital period.
